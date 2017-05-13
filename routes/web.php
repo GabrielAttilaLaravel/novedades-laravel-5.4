@@ -50,8 +50,17 @@ Route::get('courses', function () use ($courses){
     $free = $courses->reject->isPremium();
  */
   //usamos el metodo partition para separar una coleccion dependiendo de la condicion en el callback(funcion
-    // anonima), si es verdadera pasa al primer parametro si es falso pasa al segundo
+    // anonima) o en su defecto usamos un mensaje de orden superior, si es verdadera pasa al primer parametro
+    // si es falso pasa al segundo
  list($premium, $free) = $courses->partition->isPremium();
 
   dd($courses->toArray(), $premium->toArray(), $free->toArray());
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('images', function (){
+    return view('images');
 });
