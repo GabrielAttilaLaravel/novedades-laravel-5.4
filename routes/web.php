@@ -74,10 +74,12 @@ Route::get('dashboard', function (){
     // recordar crear un alias en conf
     Alert::message('Bienvenido de nuevo!', 'success');
 
-   session()->flash('alert', [
+   /**session()->flash('alert', [
        'message' => 'Bienvenido de nuevo!',
        'type' => 'success'
-   ]);
+   ]);**/
 
    return view('dashboard');
 });
+
+Route::resource('products', 'ProductController');
