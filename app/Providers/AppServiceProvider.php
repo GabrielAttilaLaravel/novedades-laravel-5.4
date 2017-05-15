@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Alert;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /**$this->app->bind('alert', function ($app){
+            return new Alert($app['session'], $app['view']);
+        });**/
     }
 
     /**

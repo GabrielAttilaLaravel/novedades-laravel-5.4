@@ -14,6 +14,11 @@
 
 // Datos de prueba
 use App\Course;
+
+//use App\AlertFacade as Alert;
+use Facades\App\Alert;
+
+
 // convertimos un array en colecciones
 $courses = collect([
     new Course(['title' => 'OOP', 'premium' => true]),
@@ -63,4 +68,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('images', function (){
     return view('images');
+});
+
+Route::get('dashboard', function (){
+    // recordar crear un alias en conf
+    Alert::message('Bienvenido de nuevo!', 'success');
+
+   session()->flash('alert', [
+       'message' => 'Bienvenido de nuevo!',
+       'type' => 'success'
+   ]);
+
+   return view('dashboard');
 });
