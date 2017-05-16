@@ -14,7 +14,7 @@
                         'class' => "form-control"
                     ]) !!}
 
-                    {!! Form::select('category_id', $categories,  [
+                    {!! Form::select('category_id', $categories,  null,[
                         'class' => "form-control"
                     ]) !!}
 

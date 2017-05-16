@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -74,7 +75,8 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $this->validate($request, [
-           'category_id' => 'nullable|integer|exist:categories,id'
+            'category_id' => 'nullable|integer',
+            'category_id' => Rule::exists('categories', 'id') //'nullable|integer|exist:categories,id'
         ]);
 
         $product->update($request->all());

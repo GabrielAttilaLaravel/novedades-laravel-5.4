@@ -82,4 +82,14 @@ Route::get('dashboard', function (){
    return view('dashboard');
 });
 
-Route::resource('products', 'ProductController');
+//Route::resource('products', 'ProductController');
+Route::prefix('admin')->middleware('guest')->group(function (){
+    //nueva interfaz fluida para definir rutas
+    Route::name('products.edit')
+        ->get('products/{product}/edit', 'ProductController@edit');
+
+    Route::name('products.update')
+        ->put('products/{product}', 'ProductController@update');
+});
+
+
