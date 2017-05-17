@@ -75,8 +75,8 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $this->validate($request, [
-            'category_id' => 'nullable|integer',
-            'category_id' => Rule::exists('categories', 'id') //'nullable|integer|exist:categories,id'
+            'name' => 'required',
+            'category_id' => 'nullable|integer|exists:categories,id',
         ]);
 
         $product->update($request->all());

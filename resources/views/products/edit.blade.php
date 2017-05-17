@@ -4,16 +4,15 @@
         <div class="panel panel-default">
             <div class="panel-heading">Editar producto</div>
             <div class="panel-body">
-                {!! Form::model($product, [
-                    'route' => ['products.update', $product], 'method' => 'PUT',
-                    'role' => 'form',
-                    'class' => 'form'
-                ]) !!}
 
-                    {!! Form::text('name', null ,[
+                {!! Form::open(['route' => ['products.update', $product ], 'method' => 'PUT']) !!}
+
+                    {{ Form::label('name') }}
+                    {!! Form::text('name', $product->name ,[
                         'class' => "form-control"
                     ]) !!}
 
+                    {{ Form::label('category') }}
                     {!! Form::select('category_id', $categories,  null,[
                         'class' => "form-control"
                     ]) !!}
