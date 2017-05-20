@@ -8,14 +8,14 @@
                 {!! Form::open(['route' => ['products.update', $product ], 'method' => 'PUT']) !!}
 
                     {{ Form::label('name') }}
-                    {!! Form::text('name', $product->name ,[
+                    {{ Form::text('name', $product->name ,[
                         'class' => "form-control"
-                    ]) !!}
+                    ]) }}
 
                     {{ Form::label('category') }}
-                    {!! Form::select('category_id', $categories,  null,[
+                    {{ Form::select('category_id', $categories,  null,[
                         'class' => "form-control"
-                    ]) !!}
+                    ]) }}
 
                     <div class="form-group">
                         <div class="col-md-8 col-md-offset-4">
@@ -25,6 +25,7 @@
                         </div>
                     </div>
                 {!! Form::close() !!}
+
             </div>
         </div>
     </div>
