@@ -92,4 +92,7 @@ Route::prefix('admin')->middleware('guest')->group(function (){
         ->put('products/{product}', 'ProductController@update');
 });
 
+Route::get('welcome', function () {
+    return view('welcome');
+});
 
